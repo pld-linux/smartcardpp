@@ -1,30 +1,44 @@
 Summary:	Library for accessing smart cards
+Summary(pl.UTF-8):	Biblioteka do dostępu do kart procesorowych
 Name:		smartcardpp
 Version:	0.2.0
 Release:	1
 License:	BSD
 Group:		Libraries
-URL:		http://code.google.com/p/esteid/
+#Source0Download: http://code.google.com/p/esteid/downloads/list
 Source0:	http://esteid.googlecode.com/files/%{name}-%{version}.tar.bz2
 # Source0-md5:	4256e9d401864ce60f5d18de606c228f
-BuildRequires:	cmake
+URL:		http://code.google.com/p/esteid/
+BuildRequires:	cmake >= 2.6
+BuildRequires:	libstdc++-devel
 BuildRequires:	pcsc-lite-devel
-BuildRequires:	rpmbuild(macros) >= 1.577
+BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 smartcardpp is a set of C++ classes to manage smart card
 communications and implement basic command primitives.
 
+%description -l pl.UTF-8
+smartcardpp to zbiór klas C++ pozwalających na zarządzanie
+komunikacją z kartami procesorowymi oraz implementujących podstawowe
+polecenia.
+
 %package devel
-Summary:	Development files for %{name}
+Summary:	Header files for smartcardpp library
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki smartcardpp
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	libstdc++-devel
 Requires:	pcsc-lite-devel
 
 %description devel
-The %{name}-devel package contains libraries and header files for
-developing applications that use %{name}.
+This package contains header files for developing applications that
+use smartcardpp library.
+
+%description devel -l pl.UTF-8
+Ten pakiet zawiera pliki nagłówkowe do tworzenia aplikacji
+wykorzystujących bibliotekę smartcardpp.
 
 %prep
 %setup -q
@@ -48,7 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc NEWS
+%doc COPYING NEWS
 %attr(755,root,root) %{_bindir}/card-test
 %attr(755,root,root) %{_libdir}/libsmartcardpp.so.*.*.*
 %ghost %attr(755,root,root) %{_libdir}/libsmartcardpp.so.0
@@ -56,5 +70,4 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libsmartcardpp.so
-%{_libdir}/libsmartcardpp.so
 %{_includedir}/smartcardpp
