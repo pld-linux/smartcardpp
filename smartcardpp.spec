@@ -1,14 +1,13 @@
 Summary:	Library for accessing smart cards
 Summary(pl.UTF-8):	Biblioteka do dostępu do kart procesorowych
 Name:		smartcardpp
-Version:	0.2.0
-Release:	2
+Version:	0.3.0
+Release:	1
 License:	BSD
 Group:		Libraries
 #Source0Download: http://code.google.com/p/esteid/downloads/list
 Source0:	http://esteid.googlecode.com/files/%{name}-%{version}.tar.bz2
-# Source0-md5:	4256e9d401864ce60f5d18de606c228f
-Patch0:		%{name}-gcc.patch
+# Source0-md5:	c6172387475982393d02314f389f3513
 URL:		http://code.google.com/p/esteid/
 BuildRequires:	cmake >= 2.6
 BuildRequires:	libstdc++-devel
@@ -43,7 +42,6 @@ wykorzystujących bibliotekę smartcardpp.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 install -d build
@@ -67,9 +65,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc COPYING NEWS
 %attr(755,root,root) %{_bindir}/card-test
 %attr(755,root,root) %{_libdir}/libsmartcardpp.so.*.*.*
-%ghost %attr(755,root,root) %{_libdir}/libsmartcardpp.so.0
+%attr(755,root,root) %ghost %{_libdir}/libsmartcardpp.so.1
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libsmartcardpp.so
 %{_includedir}/smartcardpp
+%{_pkgconfigdir}/smartcardpp.pc
