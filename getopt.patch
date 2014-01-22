@@ -1,0 +1,22 @@
+--- smartcardpp-0.3.0/test.cpp~	2011-10-12 20:24:16.000000000 +0200
++++ smartcardpp-0.3.0/test.cpp	2014-01-22 20:24:59.232357507 +0100
+@@ -14,7 +14,7 @@
+ #include <string>
+ #include <stdlib.h>
+ #include "smartcardpp.h"
+-#include "compat_getopt.h"
++#include <getopt.h>
+ #include "compat_getpass.h"
+ 
+ void validateOnPinpad();
+--- smartcardpp-0.3.0/CMakeLists.txt~	2011-10-12 20:24:16.000000000 +0200
++++ smartcardpp-0.3.0/CMakeLists.txt	2014-01-22 20:25:16.819024046 +0100
+@@ -92,7 +92,7 @@
+ set_target_properties(smartcardpp PROPERTIES VERSION ${SMARTCARDPP_VERSION} SOVERSION 1)
+ install(TARGETS smartcardpp DESTINATION ${INSTALL_TARGETS_DEFAULT_ARGS})
+ 
+-add_executable(card-test compat_getopt.c compat_getpass.c test.cpp)
++add_executable(card-test compat_getpass.c test.cpp)
+ target_link_libraries(card-test smartcardpp ${CMAKE_DL_LIBS})
+ install(TARGETS card-test DESTINATION ${BIN_INSTALL_DIR})
+ 

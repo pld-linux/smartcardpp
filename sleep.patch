@@ -1,0 +1,10 @@
+--- smartcardpp-0.3.0/CardBase.cpp~	2011-10-12 20:24:16.000000000 +0200
++++ smartcardpp-0.3.0/CardBase.cpp	2014-01-22 20:15:41.235694879 +0100
+@@ -15,6 +15,7 @@
+ #include "CardBase.h"
+ #include <algorithm>
+ #include <time.h>
++#include <unistd.h>
+ #include "helperMacro.h"
+ #ifdef WIN32
+ 	#include <Windows.h>
