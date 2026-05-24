@@ -2,7 +2,7 @@ Summary:	Library for accessing smart cards
 Summary(pl.UTF-8):	Biblioteka do dostępu do kart procesorowych
 Name:		smartcardpp
 Version:	0.3.0
-Release:	2
+Release:	3
 License:	BSD
 Group:		Libraries
 #Source0Download: http://code.google.com/p/esteid/downloads/list
