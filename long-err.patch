@@ -1,0 +1,11 @@
+--- smartcardpp-0.3.0/SCError.cpp~	2011-10-12 20:24:16.000000000 +0200
++++ smartcardpp-0.3.0/SCError.cpp	2026-06-06 01:59:10.674023099 +0200
+@@ -41,7 +41,7 @@
+ 
+ void SCError::check(long err)
+ {
+-	switch( err )
++	switch( err & 0xFFFFFFFF)
+ 	{
+ 		//these are not errors
+ 		case 0x80100068: //SCARD_W_RESET_CARD
